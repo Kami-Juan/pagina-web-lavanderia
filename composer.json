@@ -1,5 +1,12 @@
 {
+    "name": "juanganzo69/proyecto_lavanderia",
+    "authors": [
+        {
+            "name": "Juanganzo69",
+            "email": "juan1910@live.com.mx"
+        }
+    ],
     "require": {
-        "rych/phpass": "3.0.*@beta"
+        "rych/phpass": "2.1.0-dev"
     }
 }

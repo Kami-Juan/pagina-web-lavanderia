@@ -102,7 +102,7 @@ header{
     border-radius: 200px;
 }
 
-.btn-header:hover{
+.btn-header:hover, .comprar > button:hover{
     background-color: rgb(21, 167, 175);
     color: white;
     
@@ -162,8 +162,8 @@ h2::after{
 }
 
 .seccion-principios{
-    padding-top: 40px;
-    padding-bottom: 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     height: 900px;
 }
 
@@ -230,7 +230,13 @@ footer{
 .contact{
     float: right;
     width: 50%;
+    text-align: right;
     box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.contact > h3{
+    text-align: right;
 }
 
 .copyright{
@@ -270,33 +276,216 @@ footer p{
 .copyright{
     text-align: right;
     color: white;
+    padding-bottom: 10px;
 }
 
-/* COMENTARIOS */
+/* PLANES */
+
+.plan{
+    box-sizing: border-box;
+    border: 1px rgb(21, 167, 175) solid;
+    height: 400px;
+    padding: 20px 10px;
+    margin-bottom: 40px;
+}
+
+.precio{
+    width: 90%;
+    height: 100px;
+    color: #333;
+    margin-top: 10px; 
+}
+
+
+.moneda{
+    float: left;
+    width: 33.33%;
+    text-align: right;
+    box-sizing: border-box;
+    font-size: 23px;
+}
+.costo{
+    float: left;
+    width: 33.33%;
+    font-size: 50px;
+    box-sizing: border-box;
+}
+.mes{
+    float: left;
+    width: 33.33%;
+    font-weight: bold;
+    padding-left: 10px;    
+    text-align: left;
+    box-sizing: border-box;
+    margin-top: 30px;
+}
+
+.caracteristicas-plan{
+    height: 100px;
+    color: #333;
+}
+
+.comprar > button{
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    background: rgba(22, 168, 175, 0.774);
+    border-radius: 5px;
+}
+
+/*SECCION UBICACIÓN*/
+
+.seccion-map{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    height: 500px;
+}
+
+#mapa{
+    width: 100%;
+    height: 300px;
+}
+
+/* ENVIAR COMENTARIO */
+
+.com{
+    padding: 10px 0;
+}
+
+.comment{
+    height: 480px;
+    clear: both;
+}
 
 .comentario{
-    float: left;
+    padding: 30px 10px;
+    width: 30%;
+    margin: auto;
     box-sizing: border-box;
-    background-color: rgb(21, 167, 175);
-    height: 350px;
-    width: 200px;
-    margin-right: 20px;
-    color: white;
-    padding: 10px;
-    text-align: center;
+    
+    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
 }
 
-.comentario > img{
-    border-radius: 50%;
-    height: 30%;
-    border: 2px white solid;
+.comentario input[type="text"]{
+    margin: 5px 0px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 2px;
+    border: 1px solid #e6ecf0;
+    font-weight: bold;
+    
+    
 }
 
-article span{
-    font-size: 50px;
+.comentario  label{
+    font-size: 18px;
+    color: #555;
     font-weight: bold;
 }
 
-marquee{
-    margin-top: 40px;
+.comentario input::-webkit-input-placeholder{
+    font-size: 18px;
+    color: #555;
+    font-weight: bold;
+    
+}
+
+.comentario textarea{
+    resize: none;
+    width: 100%;
+    color: #555;
+    font-weight: bold;
+    border: 1px solid #e6ecf0;
+}
+
+.titulo-h2{
+    padding: 30px 0px;
+}
+
+.comentario input[type="submit"]{
+    width: 100%;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 9px;
+    border: none;
+    font-size: 20px;
+    color : white;      
+    background-color: rgba(22, 168, 175, 0.774);
+}
+
+/* INICIO SESION */
+
+.sizesession{
+    height: 480px;
+}
+
+.singup{
+    clear: both;
+    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
+    height: 330px;
+    width: 30%;
+    padding: 10px 20px;
+    margin: auto;
+    box-sizing: border-box;    
+}
+
+.singup label{
+    font-weight: bold;
+    color: #555;
+    display: inline-block;
+    padding: 7px 0;    
+    text-transform: uppercase;    
+}
+
+.singup input[type="submit"]{
+    width: 100%;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 9px;
+    border: none;
+    font-size: 20px;
+    color : white;      
+    background-color: rgba(22, 168, 175, 0.774);
+}
+
+/* ERRORES */
+
+
+.esErrorWord{
+    color: #ff3860;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.input{
+    background-color: #fff;
+    border-radius: 3px;
+    color: #363636;
+    font-size: 14px;
+    height: 32px;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: inset 0 1px 2px hsla(0,0%,4%,.1);
+    width: 100%;
+    border: 1px solid #dbdbdb;
+}
+
+
+.esError{
+    border-color: #ff3860;
+}
+
+.is-active{
+    border-color: #00d1b2;
+    outline: none;
+}
+
+.input.is-active, .input:active, .input:focus, .textarea.is-active, .textarea:active, .textarea:focus {
+    border-color: #00d1b2;
+    outline: none;
 }

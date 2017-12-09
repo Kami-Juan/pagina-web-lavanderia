@@ -37,33 +37,60 @@
         </div>
     </div>
     <div class="container">
-        <h2>COMENTARIOS</h2>
-        <marquee behavior="scroll" direction="left">
-            <div class="comentario">
-                <img src="https://randomuser.me/api/portraits/med/women/59.jpg" alt="">
-                <article>
-                <p><span>"</span>El mejor servicios<span>"</span></p>
-                </article>
+        <h2>ELIGE TU PLAN</h2>
+        <div class="planes">
+            <div class="col-md-4">
+                <div class="plan">
+                    <h3>LIMPIEZA BÁSICA</h3>    
+                    <div class="precio">
+                        <div class="moneda">MX$</div>
+                        <div class="costo">149</div>
+                        <div class="mes">/mes</div>
+                    </div>
+                    <hr>
+                    <div class="caracteristicas-plan">
+                        <p>Este plan te permite ser socio, equipos de última generación a tu disposición, una alta gamma de especialista en el cuidado de tu ropa, sin esperar a ser atendido.</p>
+                    </div>
+                    <div class="comprar">
+                        <button>Empezar</button>
+                    </div>
+                </div> 
             </div>
-            <div class="comentario">
-                <img src="https://randomuser.me/api/portraits/med/women/59.jpg" alt="">
-                <article>
-                    El mejor servicios
-                </article>
+            <div class="col-md-4">
+                <div class="plan">
+                    <h3>LIMPIEZA PREMIUM</h3>    
+                    <div class="precio">
+                        <div class="moneda">MX$</div>
+                        <div class="costo">249</div>
+                        <div class="mes">/mes</div>
+                    </div>
+                    <hr>
+                    <div class="caracteristicas-plan">
+                        <p>Además de los beneficios del plan básico, el servicio a domicilio es gratuito, se obtiene un descuento del 75% en el café y los restaurantes.</p>
+                    </div>
+                    <div class="comprar">
+                        <button>Empezar</button>
+                    </div>
+                </div>                    
             </div>
-            <div class="comentario">
-                <img src="https://randomuser.me/api/portraits/med/women/59.jpg" alt="">
-                <article>
-                    El mejor servicios
-                </article>
-            </div>
-            <div class="comentario">
-                <img src="https://randomuser.me/api/portraits/med/women/59.jpg" alt="">
-                <article>
-                    El mejor servicios
-                </article>
-            </div>
-        </marquee>    
+            <div class="col-md-4">
+                <div class="plan">
+                    <h3>LIMPIEZA DELUXE</h3>    
+                    <div class="precio">
+                        <div class="moneda">MX$</div>
+                        <div class="costo">499</div>
+                        <div class="mes">/mes</div>
+                    </div>
+                    <hr>
+                    <div class="caracteristicas-plan">
+                        <p>Todos nuestros servicios serán gratuitos sin ningún recargo, tendrá acceso a la sección VIP que ofrece: piscina, comedor, spa, campo de golf entre otros.</p>
+                    </div>
+                    <div class="comprar">
+                        <button>Empezar</button>
+                    </div>
+                </div>                     
+            </div>    
+        </div>  
     </div>    
     <?php
         include "layouts/footer.php";
