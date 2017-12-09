@@ -1,9 +1,10 @@
 <?php
 
-    //require '../../vendor/autoload.php';
+    require '../../vendor/autoload.php';
     include "../conexion.php";
     include "../cors.php";
     cors();
+    $phpassHash = new \Phpass\Hash;
 
     if( $_POST["tipo"] == "signup" ){
 
@@ -14,6 +15,9 @@
 
         
         if( $username != "" && $password != "" && $correo != "" ){
+
+            $hash = $phpassHash->hashPassword($password);
+
             if( verificarUsername( $username, $conexion ) > 0 ){
                 $informacion["respuesta"] = "El username ".$username." ya está en uso. Por favor utiliza otro";
                 echo json_encode($informacion);
@@ -31,12 +35,17 @@
         if( $username != "" && $password != "" ){
             if( verificarUsername( $username, $conexion ) > 0 ){
                 $pass = obtenerPassword( $username, $conexion );
-
-                // if ($context->verify($password, $pass)) {
-                //     echo json_encode("yeah");
-                // }else{
-                //     echo json_encode("buhhh");                    
-                // }
+                if ($phpassHash->checkPassword($password, $pass['password'])) {
+                    if( $pass['tipo'] == "admin" ){
+                        echo json_encode("admin");
+                        authadmin();
+                    }else{
+                        echo json_encode("user");
+                        auth();
+                    }  
+                }else{
+                    echo json_encode("no match");                    
+                }
             }
         }
     }
@@ -46,6 +55,11 @@
     function auth(){
         session_start();
         $_SESSION["tipoUsuario"] = "user";
+    }
+
+    function authadmin(){
+        session_start();
+        $_SESSION["tipoUsuario"] = "admin";
     }
 
     function guardarDatos( $username, $pass, $correo, $conexion ){
@@ -63,7 +77,7 @@
     }
 
     function obtenerPassword( $user, $con ){
-        $query = "SELECT password FROM usuario WHERE username = '$user'";
+        $query = "SELECT password,tipo FROM usuario WHERE username = '$user'";
         $pass = mysqli_query($con, $query);
         $data =  mysqli_fetch_assoc($pass);
         return $data;        

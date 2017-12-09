@@ -489,3 +489,31 @@ footer p{
     border-color: #00d1b2;
     outline: none;
 }
+
+/* TABLE_USER */
+
+.table_user_data{
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color: rgba(26, 211, 224, 0.644);
+}
+
+.table_user_data, th, td{
+    border: 1px black solid;
+}
+
+th,td{
+    text-align: center;
+}
+
+td{
+    padding: 6px;
+}
+
+tr:nth-child(even):hover {
+    background-color: rgba(26, 211, 224, 0.2);
+}

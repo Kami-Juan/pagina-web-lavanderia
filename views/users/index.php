@@ -1,9 +1,12 @@
 <?php
-    // session_start();
-    // if($_SESSION["tipoUsuario"] == "user" ){
-    //     header("Location: panel.php");
-    //     exit();
-    // }
+    session_start();
+    if($_SESSION["tipoUsuario"] == "user"){
+        header("Location: panel.php");
+        exit();
+    }else if( $_SESSION["tipoUsuario"] == "admin" ){
+        header("Location: paneladmin.php");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

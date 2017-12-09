@@ -34,9 +34,11 @@ new Vue({
                     const usuario = this.convertFormData( this.login );
                     return axios.post('http://localhost/proyecto_lavanderia/app/security/storeUser.php', usuario).then( res => {
                         console.log(res.data);
-                        // if( res.data.respuesta === "exito" ){
-                        //     location.href = "../../views/users/panel.php";
-                        // }
+                        if( res.data === "user" ){
+                            location.href = "../../views/users/panel.php";
+                        }else if(res.data === "admin"){
+                            location.href = "../../views/users/paneladmin.php";                            
+                        }
                     });
                 }
 
