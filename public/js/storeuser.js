@@ -1,6 +1,7 @@
 new Vue({
     el: "#app",
     data: {
+        host: window.location.protocol + "//" + window.location.hostname,
         usuario: {
             username: "",
             password: "",
