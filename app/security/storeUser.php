@@ -37,15 +37,25 @@
                 $pass = obtenerPassword( $username, $conexion );
                 if ($phpassHash->checkPassword($password, $pass['password'])) {
                     if( $pass['tipo'] == "admin" ){
-                        echo json_encode("admin");
+
+                        $respuesta["id"] = base64_encode($username);
+
+                        //$respuesta["id"] = $pass["username"];
+                        $respuesta["tipo"] = $pass["tipo"];
+                        echo json_encode($respuesta);
                         authadmin();
                     }else{
-                        echo json_encode("user");
+                        $respuesta["id"] = base64_encode($username);                        
+                        //$respuesta["id"] = $pass["username"];
+                        $respuesta["tipo"] = $pass["tipo"];
+                        echo json_encode($respuesta);
                         auth();
                     }  
                 }else{
-                    echo json_encode("no match");                    
+                    echo json_encode("Las credenciales no coinciden");                    
                 }
+            }else {
+                echo json_encode("no existe un usuario registrado con ese nombre");                                    
             }
         }
     }
@@ -65,7 +75,7 @@
     function guardarDatos( $username, $pass, $correo, $conexion ){
         $query = "INSERT INTO usuario (username, correo, password, tipo) VALUES('$username', '$correo','$pass','user');";
         $resultado = mysqli_query($conexion, $query);
-        verificar_resultado( $resultado );   
+        verificar_resultado( $resultado, $username );   
         cerrar( $conexion);
     }
 
@@ -77,19 +87,20 @@
     }
 
     function obtenerPassword( $user, $con ){
-        $query = "SELECT password,tipo FROM usuario WHERE username = '$user'";
+        $query = "SELECT password,tipo,username FROM usuario WHERE username = '$user'";
         $pass = mysqli_query($con, $query);
         $data =  mysqli_fetch_assoc($pass);
         return $data;        
     }
 
-    function verificar_resultado($resultado){
+    function verificar_resultado($resultado, $user){
 		if( !$resultado ){
             $informacion["respuesta"] = "ERROR DEL SERVIDOR";
 			echo json_encode($informacion);
 		}
 		else{
-			$informacion["respuesta"] = "exito";
+            $informacion["id"] = base64_encode($user);
+            $informacion["respuesta"] = "exito";
 			echo json_encode($informacion);
 		}
     }

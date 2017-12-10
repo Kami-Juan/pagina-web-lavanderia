@@ -5,7 +5,7 @@ new Vue({
 
             let obj = this.convertFormData({hola: "hola"});
 
-           axios.post('http://localhost/proyecto_lavanderia/app/testcors.php', obj).then(res => {
+           axios.post('http://localhost/pagina-web-lavanderia/app/testcors.php', obj).then(res => {
                 console.log(res);
            });
        },
