@@ -1,6 +1,7 @@
 new Vue({
     el: "#app",
     data: {
+        host: window.location.protocol+"//"+window.location.hostname,
         isAgregar: false,
         isPeticion: false,
         cobro:{
@@ -63,7 +64,7 @@ new Vue({
             this.cobro.idUsuario = username;
 
             const cobro = this.convertFormData( this.cobro );
-            axios.post('http://localhost/pagina-web-lavanderia/app/storecobro.php', cobro).then(res => {
+            axios.post(this.host+'/pagina-web-lavanderia/app/storecobro.php', cobro).then(res => {
                 console.log(res);
 
                 this.cobro.tiporopa = [];
