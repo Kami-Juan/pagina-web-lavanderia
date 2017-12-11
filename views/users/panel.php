@@ -42,10 +42,25 @@
 
                     $variable = $_GET["encrypt"];
 
-                    //if()
+
+                    if( isset($_GET["pagina"]) ){
+                        $pagina =  $_GET["pagina"];
+                    }else{
+                        $pagina = 1;
+                    }
+
+                    $size_pagina = 5;
+                    $start_in = ( $pagina-1 )*$size_pagina;
+
                     $username = base64_decode($variable);
                     $cobros = "SELECT * FROM compras WHERE username = '$username' order by id asc";
                     $res = $conexion->query($cobros);
+
+                    $num_rows = mysqli_num_rows($res);
+                    $total_paginas = ceil($num_rows/$size_pagina);
+
+                    $sql_limite = "SELECT * FROM compras WHERE username = '$username' order by id asc LIMIT $start_in, $size_pagina";
+                    $res = $conexion->query($sql_limite);
 
                     while( $registro = $res->fetch_array(MYSQLI_BOTH) ){
                         echo "<tr>";
@@ -58,12 +73,19 @@
                         echo "<td>".$fechainicio->formatLocalized('%r')."</td>";                           
                         echo "<td>".$tiempo_aprox->formatLocalized('%d %B %Y')."</td>";      
                         echo "<td>".$tiempo_aprox->formatLocalized('%r')."</td>"; 
-                        echo '<td><a href="verpedido.php?mostrarpedido='.$variable.'&id='.$registro["id"].'"><i class="ion-eye"></i></a></td>';      
+                        echo '<td><a class="btn btn-edit" href="verpedido.php?mostrarpedido='.$variable.'&id='.$registro["id"].'"><i class="ion-eye"></i></a></td>';      
                         echo "</tr>";
                     }
                 ?>
                 </tbody>
             </table>
+            <div class="rows_tabla" v-show="!isAgregar && !isPeticion">
+                <?php
+                    for( $i = 1; $i <= $total_paginas; $i++ ){
+                        echo "<a href='?pagina=".$i."&encrypt=".$variable."'>".$i."</a>";
+                    }
+                ?>
+            </div>
             <div class="compras" v-show="isAgregar" class="animated fadeIn">
                 <form @submit.prevent="submitCobro" class="form_compra">
                     <input type="hidden" id="idUsuario" value="<?php echo $variable; ?>">
@@ -95,7 +117,7 @@
                 </form>
             </div>
             <div class="compras" v-show="isPeticion">
-                <form class="form_compra" @submit.prevent="enviarEmail">
+                <form class="enviar_peticion" @submit.prevent="enviarEmail">
                     <label for="">Envia tu petición: </label><br>
                     <textarea name="email" cols="30" rows="10" v-model="mensajeEmail"></textarea><br>  
                     <input type="submit" value="Enviar">

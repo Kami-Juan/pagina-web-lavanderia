@@ -520,10 +520,11 @@ td {
 th,
 td {
     text-align: center;
+    padding: 10px;
 }
 
 td {
-    padding: 6px;
+    padding: 20px;
 }
 
 tr:nth-child(even):hover {
@@ -532,11 +533,23 @@ tr:nth-child(even):hover {
 
 .agregar_cotizacion>button {
     padding: 5px 20px;
-    background: rgb(25, 148, 25);
+    background: rgb(25, 198, 207);
     color: white;
     border: none;
     font-size: 18px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.agregar_cotizacion>button:hover {
+    background: rgb(49, 235, 245);
+    -webkit-transition: background 1s;
+    -moz-transition: background 1s;
+    transition: background 1s;
+}
+
+.agregar_cotizacion>button>i {
+    margin-right: 6px;
 }
 
 
@@ -576,14 +589,151 @@ tr:nth-child(even):hover {
     margin-left: 10px;
 }
 
-.costo_total{
+.costo_total {
     margin: 10px 0;
 }
 
-.costo_total:read-only{
+.costo_total:read-only {
     background-color: rgba(204, 204, 204, 0.411);
 }
 
 .usersession {
-    height: 680px;
+    height: 690px;
+}
+
+
+/* MARQUEE */
+
+.img-marquee {
+    width: 25%;
+    float: left;
+}
+
+.img-marquee>img {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mision_h2 {
+    text-align: left;
+}
+
+.mision_h2::after {
+    display: none;
+}
+
+marquee {
+    width: 100%;
+}
+
+.img_left {
+    float: left;
+    width: 50%;
+}
+
+.img_right {
+    float: right;
+    width: 50%;
+}
+
+
+/* PETICION */
+
+.enviar_peticion {
+    clear: both;
+    box-shadow: 0 2px 2px rgba(10, 16, 20, .24), 0 0 2px rgba(10, 16, 20, .12);
+    height: 280px;
+    width: 60%;
+    padding: 10px 20px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.enviar_peticion label {
+    font-weight: bold;
+    color: #555;
+    display: inline-block;
+    padding: 7px 0;
+    text-transform: uppercase;
+}
+
+.enviar_peticion textarea {
+    resize: none;
+    width: 100%;
+}
+
+.enviar_peticion input[type="submit"] {
+    width: 100%;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 9px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(22, 168, 175, 0.774);
+}
+
+.btn {
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-edit {
+    color: white;
+    background: rgb(21, 167, 175);
+}
+
+.btn-delete {
+    color: white;
+    background: rgb(221, 27, 27);
+}
+
+.btn-edit:hover {
+    background: rgb(40, 210, 219);
+    -webkit-transition: background 1s;
+    -moz-transition: background 1s;
+    transition: background 1s;
+}
+
+.btn-delete:hover {
+    background: rgb(255, 61, 61);
+    -webkit-transition: background 1s;
+    -moz-transition: background 1s;
+    transition: background 1s;
+}
+
+
+/* ROWS TABLA */
+
+.rows_tabla {
+    margin-top: 15px;
+    clear: both;
+}
+
+.rows_tabla a {
+    padding: 10px;
+    background-color: rgb(40, 210, 219);
+    color: white;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+
+/* MOSTRAR PEDIDO */
+
+.show {
+    height: 370px;
+    margin-top: 10px;
+}
+
+.show span {
+    color: rgb(57, 211, 216);
+}
+
+.session_init{
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
 }

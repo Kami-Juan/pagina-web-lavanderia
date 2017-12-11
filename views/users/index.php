@@ -26,7 +26,7 @@
 </head>
 <body>
     <?php
-        include "../layouts/header.php";
+        include "../layouts/header-login.php";
     ?>
     <div class="container sizesession">
         <h2 class="titulo-h2">INICIAR SESIÓN</h2>
@@ -38,7 +38,7 @@
                 <label for="">Password</label>
                 <input type="password" name="password" :class="{'input':true, 'esError': errors.has('password') }" v-validate="'required|alpha_dash|min:8|max:100'" v-model="login.password"><br>
                 <span v-show="errors.has('password')" class="esErrorWord">{{ errors.first('password') }}</span><br>       <input type="submit" value="Login"> 
-                <a href="signup.php">¿Aún no tienes cuenta? Regístrate aquí!</a>
+                <a href="signup.php" class="session_init">¿Aún no tienes cuenta? Regístrate aquí!</a>
             </form>
         </div>
     </div>

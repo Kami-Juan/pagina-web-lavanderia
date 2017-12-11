@@ -14,6 +14,9 @@
         <div class="container">
             <div class="seccion-principios">
                 <div class="historia">
+                    <marquee behavior="alternate" scrollamount="40" direction="right">
+                        <h2 class="mision_h2">¿QUIENES SOMOS?</h2><br>                        
+                    </marquee>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/dl8TmZZQApg?rel=0" frameborder="0" allowfullscreen></iframe>
                     <div class="contenido">
                         <i class="ion-ios-book big-icon"></i>
@@ -40,4 +43,7 @@
         include "layouts/footer.php";
     ?>
 </body>
+    <?php 
+        include "layouts/timer.php";
+    ?>
 </html>

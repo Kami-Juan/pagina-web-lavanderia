@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        include "../layouts/header.php";
+        include "../layouts/header-login.php";
     ?>
     <div class="container sizesession">
         <h2 class="titulo-h2">CREAR CUENTA</h2>

@@ -27,4 +27,7 @@
         include "layouts/footer.php";
     ?>
 </body>
+    <?php 
+        include "layouts/timer.php";
+    ?>
 </html>

@@ -37,14 +37,14 @@
                 $tiempo_aprox = new Carbon($compra['tiempo_aprox']);
             ?>
 
-            <div class="mostrar">
-                <label for="">Peso ropa: <?php echo $compra["peso_ropa"] ?> </label><br>
-                <label for="">Tipo ropa: <?php echo $compra["tipo_ropa"] ?></label><br>
-                <label for="">Sexo: <?php echo $compra["sexo"] ?></label><br>
-                <label for="">Urgencia: <?php echo $compra["urgencia"] ?></label><br>
-                <label for="">Inicio de la compra: <?php echo $fechainicio->formatLocalized('%d %B %Y %r') ?></label><br>
-                <label for="">Fecha estimada de la compra: <?php echo $tiempo_aprox->formatLocalized('%d %B %Y %r') ?></label><br>
-                <label for="">Costo: <?php echo $compra["costo"] ?></label><br>
+            <div class="form_compra show">
+                <label for="">Peso ropa: <span><?php echo $compra["peso_ropa"] ?></span> </label><br>
+                <label for="">Tipo ropa: <span><?php echo $compra["tipo_ropa"] ?></span></label><br>
+                <label for="">Sexo: <span><?php echo $compra["sexo"] ?></span></label><br>
+                <label for="">Urgencia: <span><?php echo $compra["urgencia"] ?></span></label><br>
+                <label for="">Inicio de la compra: <span><?php echo $fechainicio->formatLocalized('%d %B %Y %r') ?></span></label><br>
+                <label for="">Fecha estimada de la compra: <span><?php echo $tiempo_aprox->formatLocalized('%d %B %Y %r') ?></span></label><br>
+                <label for="">Costo: <span><?php echo $compra["costo"] ?></span></label><br>
             </div>
         </div>
     </div>

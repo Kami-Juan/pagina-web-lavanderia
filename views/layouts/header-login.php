@@ -8,6 +8,5 @@
     <a href="http://<?php echo $_SERVER["HTTP_HOST"]; ?>/pagina-web-lavanderia/views/mision.php">¿Quiénes somos?</a>
     <a href="http://<?php echo $_SERVER["HTTP_HOST"]; ?>/pagina-web-lavanderia/views/ubicacion.php">Ubicación</a>
     <a href="http://<?php echo $_SERVER["HTTP_HOST"]; ?>/pagina-web-lavanderia/views/comentario.php">Enviar Comentario</a>
-    <a href="#">{{ hora }}</a>
 </div>
 </div>

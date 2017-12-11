@@ -3,6 +3,7 @@ new Vue({
     data: {
         host: window.location.protocol+"//"+window.location.hostname,
         isAgregar: false,
+        hora: "",
         isPeticion: false,
         mensajeEmail: "",
         cobro:{
@@ -87,8 +88,12 @@ new Vue({
             const cobro = this.convertFormData( this.cobro );
             axios.post(this.host+'/pagina-web-lavanderia/app/storecobro.php', cobro).then(res => {
                 console.log(res);
-
-                this.cobro.tiporopa = [];
+                if( res.data.respuesta === "exito" ){
+                    alert("El cobro fue realizado, si desea cancelarlo por favor comuníquese al administrador.");
+                    /* username */
+                    location.reload(true);
+                    this.cobro.tiporopa = [];                    
+                }
             });
 
 

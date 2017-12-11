@@ -41,4 +41,7 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMtgo5GU4JUqKFVOim0lEnz46O4GbiXKI&callback=initMap"
     type="text/javascript"></script>
 </body>
+    <?php 
+        include "layouts/timer.php";
+    ?>
 </html>

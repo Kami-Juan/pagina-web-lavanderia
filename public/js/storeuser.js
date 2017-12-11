@@ -2,6 +2,7 @@ new Vue({
     el: "#app",
     data: {
         host: window.location.protocol + "//" + window.location.hostname,
+        hora: "",
         usuario: {
             username: "",
             password: "",
@@ -22,6 +23,8 @@ new Vue({
                     return axios.post(this.host +'/pagina-web-lavanderia/app/security/storeUser.php', usuario).then( res => {
                         if( res.data.respuesta === "exito" ){
                             location.href = "../../views/users/panel.php?encrypt="+res.data.id;
+                        }else{
+                            alert(res.data.respuesta);
                         }
                     });
                 }
@@ -37,9 +40,13 @@ new Vue({
 
                         if( res.data.tipo === "user" ){
                             location.href = "../../views/users/panel.php?encrypt="+res.data.id;
+                            return false;
                         }else if(res.data.tipo === "admin"){
                             location.href = "../../views/users/paneladmin.php?encrypt="+res.data.id;
+                            return false;                            
                         }
+
+                        alert(res.data);
                     });
                 }
 

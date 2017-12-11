@@ -27,7 +27,8 @@
                     <th>Hora de pedido</th>
                     <th>Fecha de estimada</th>                    
                     <th>Hora estimada</th>
-                    <th>Opciones</th>
+                    <th>Editar</th>
+                    <th>Eliminar Cobro</th>
                 </thead>
                 <tbody>
                 <input type="hidden" id="idUsuario" value="<?php echo $_GET['encrypt']; ?>">
@@ -39,8 +40,26 @@
 
                     setlocale(LC_TIME, 'es');
 
+                    if( isset($_GET["pagina"]) ){
+                        $pagina =  $_GET["pagina"];
+                    }else{
+                        $pagina = 1;
+                    }
+
+                    $size_pagina = 5;
+                    $start_in = ( $pagina-1 )*$size_pagina;
+
+
                     $cobros = "SELECT * FROM compras order by id asc";
                     $res = $conexion->query($cobros);
+
+                    $num_rows = mysqli_num_rows($res);
+                    $total_paginas = ceil($num_rows/$size_pagina);
+
+                    $sql_limite = "SELECT * FROM compras order by id asc LIMIT $start_in, $size_pagina";
+                    $res = $conexion->query($sql_limite);
+
+
                     if( isset($_GET['encrypt']) ){
                         $admin = $_GET['encrypt'];    
                     }
@@ -60,13 +79,20 @@
                         
                         $variable = base64_encode($registro["username"]); 
 
-                        echo '<td><a href="editarCobro.php?editarpedido='.$variable.'&id='.$registro["id"].'&encrypt='.$admin.'"><i class="ion-edit"></i></a></td>';
-                        echo '<td><a onClick="validar('.$registro['id'].')" href="#" >Eliminar</a></td>';;      
+                        echo '<td><a class="btn btn-edit" href="editarCobro.php?editarpedido='.$variable.'&id='.$registro["id"].'&encrypt='.$admin.'"><i class="ion-edit"></i></a></td>';
+                        echo '<td><a class="btn btn-delete" onClick="validar('.$registro['id'].')" href="#" ><i class="ion-trash-a"></i></a></td>';;      
                         echo "</tr>";
                     }
                 ?>
                 </tbody>
             </table>
+            <div class="rows_tabla">
+                <?php
+                    for( $i = 1; $i <= $total_paginas; $i++ ){
+                        echo "<a href='?pagina=".$i."&encrypt=".$variable."'>".$i."</a>";
+                    }
+                ?>
+            </div>
         </div>
     </div>
     <?php
