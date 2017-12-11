@@ -22,7 +22,7 @@
                 $informacion["respuesta"] = "El username ".$username." ya está en uso. Por favor utiliza otro";
                 echo json_encode($informacion);
             }else{
-                auth();
+                auth(base64_encode($username));
                 guardarDatos( $username, $hash, $correo, $conexion );
             }
         }
@@ -43,13 +43,13 @@
                         //$respuesta["id"] = $pass["username"];
                         $respuesta["tipo"] = $pass["tipo"];
                         echo json_encode($respuesta);
-                        authadmin();
+                        authadmin(base64_encode($username));
                     }else{
                         $respuesta["id"] = base64_encode($username);                        
                         //$respuesta["id"] = $pass["username"];
                         $respuesta["tipo"] = $pass["tipo"];
                         echo json_encode($respuesta);
-                        auth();
+                        auth(base64_encode($username));
                     }  
                 }else{
                     echo json_encode("Las credenciales no coinciden");                    
@@ -62,13 +62,15 @@
 
     
 
-    function auth(){
+    function auth($user){
         session_start();
+        $_SESSION["username"] = $user;
         $_SESSION["tipoUsuario"] = "user";
     }
 
-    function authadmin(){
+    function authadmin($user){
         session_start();
+        $_SESSION["username"] = $user;
         $_SESSION["tipoUsuario"] = "admin";
     }
 

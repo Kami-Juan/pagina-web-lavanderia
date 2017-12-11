@@ -5,14 +5,14 @@
     }
 
     if($_SESSION["tipoUsuario"] == "user"){
-        //header("Location: ./panel.php");
-        echo "<script>window.history.back(1);</script>";
+        header("Location: ./panel.php?encrypt=".$_SESSION["username"]);
+        /* echo "<script>window.history.back(1);</script>"; */
         exit();
     }
     
     if( $_SESSION["tipoUsuario"] == "admin" ){
-        /* header("Location: ./paneladmin.php"); */
-        echo "<script>window.history.back(1);</script>";
+        header("Location: ./paneladmin.php?encrypt=".$_SESSION["username"]);
+        //echo "<script>window.history.back(1);</script>";
         exit();
     }
 ?>
