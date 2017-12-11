@@ -4,6 +4,7 @@ new Vue({
         host: window.location.protocol+"//"+window.location.hostname,
         isAgregar: false,
         isPeticion: false,
+        mensajeEmail: "",
         cobro:{
             idUsuario:"",
             pesototal: 0,
@@ -22,6 +23,24 @@ new Vue({
             }else{
                 this.isAgregar = true;                            
             }
+        },
+        enviarEmail(){
+
+            const email = document.getElementsByName("email")[0];
+
+            if( this.mensajeEmail.split("").length > 100 ){
+                alert("El mensaje no puede sobrepasar los 100 dígitos");
+                email.focus();
+                return false;
+            }
+
+            var formData = new FormData();
+            formData.append("email", this.mensajeEmail);
+
+            axios.post(this.host +"/pagina-web-lavanderia/app/sendemail.php", formData).then( res => {
+                console.log(res);
+                alert("Mensaje enviado!");
+            });
         },
         submitCobro(){
 

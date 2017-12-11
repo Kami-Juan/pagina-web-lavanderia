@@ -95,9 +95,10 @@
                 </form>
             </div>
             <div class="compras" v-show="isPeticion">
-                <form class="form_compra">
+                <form class="form_compra" @submit.prevent="enviarEmail">
                     <label for="">Envia tu petición: </label><br>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="email" cols="30" rows="10" v-model="mensajeEmail"></textarea><br>  
+                    <input type="submit" value="Enviar">
                 </form>
             </div>
         </div>
