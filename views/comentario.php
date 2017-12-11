@@ -13,7 +13,7 @@
     <div class="container comment">
         <h2 class="com animated fadeIn">ENVIAR COMENTARIO</h2>
         <div class="comentario animated fadeInDown ">
-            <form action="">
+            <form action="../app/emailinvitado.php" method="POST">
                 <input type="text" name="nombre" placeholder="Nombre completo"><br>
                 <input type="text" name="tel" placeholder="Teléfono"><br>            
                 <input type="text" name="email" placeholder="Email"><br>

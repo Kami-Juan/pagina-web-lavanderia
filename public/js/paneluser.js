@@ -38,8 +38,10 @@ new Vue({
             formData.append("email", this.mensajeEmail);
 
             axios.post(this.host +"/pagina-web-lavanderia/app/sendemail.php", formData).then( res => {
-                console.log(res);
                 alert("Mensaje enviado!");
+                this.mensajeEmail = "";
+            }).catch(e => {
+                alert("Ocurrió un error en el servidor. Contacta con el admnistrador");
             });
         },
         submitCobro(){
